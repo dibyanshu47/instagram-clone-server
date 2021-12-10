@@ -4,6 +4,8 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
+import userRoute from './routes/user.js';
+
 const app = express();
 
 dotenv.config();
@@ -15,6 +17,8 @@ app.use(cors());
 app.get('/', (req, res) => {
     res.send('APP IS RUNNING');
 });
+
+app.use('/user', userRoute);
 
 const CONNECTION_URL = 'mongodb+srv://dibyanshu47:SXyRyA.5PVF.un7@cluster0.fpai5.mongodb.net/firstDatabase?retryWrites=true&w=majority';
 const PORT = process.env.PORT || 5000;
